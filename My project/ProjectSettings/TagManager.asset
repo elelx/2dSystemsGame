@@ -8,6 +8,8 @@ TagManager:
   - Dust
   - ToyBox
   - TrashCan
+  - Trash
+  - Toys
   layers:
   - Default
   - TransparentFX

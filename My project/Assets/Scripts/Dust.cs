@@ -10,12 +10,17 @@ public class Dust : MonoBehaviour
     bool ifBroomTouch = false;
     bool TimerStart = false;
 
-    private float timer = 0f;
+    private float CleanDusttimer = 0f;
+
+    bool UntocuhedTrash = false;
+
+    public GameObject dust;
+
 
     private void OnEnable()
     {
         ifBroomTouch = false;
-        timer = DustTimer;
+        CleanDusttimer = DustTimer;
     }
 
     // Start is called before the first frame update
@@ -32,11 +37,11 @@ public class Dust : MonoBehaviour
             return;
         }
 
-        timer -= Time.deltaTime;
+        CleanDusttimer -= Time.deltaTime;
 
-        Debug.Log( " timer: " + timer);
+        Debug.Log( " timer: " + CleanDusttimer);
 
-        if (timer <= 0f)
+        if (CleanDusttimer <= 0f)
         {
             TimerEnds();
         }
