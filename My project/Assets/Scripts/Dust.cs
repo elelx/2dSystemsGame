@@ -12,9 +12,8 @@ public class Dust : MonoBehaviour
 
     private float CleanDusttimer = 0f;
 
-    bool UntocuhedTrash = false;
 
-    public GameObject dust;
+
 
 
     private void OnEnable()
