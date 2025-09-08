@@ -13,6 +13,8 @@ public class DragAndDrop : MonoBehaviour
     GameObject selectedObject;
     bool isDragging;
 
+    Animator objectsAnimator;
+
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +39,13 @@ public class DragAndDrop : MonoBehaviour
 
                 selectedObject = hit.collider.gameObject;
                 isDragging = true;
+
+               objectsAnimator = selectedObject.GetComponent<Animator>();
+
+                if(objectsAnimator != null)//null=empty)
+                {
+                    objectsAnimator.SetBool("PickedUp", true);
+                }
             }
             
         }
@@ -50,6 +59,7 @@ public class DragAndDrop : MonoBehaviour
             if (selectedObject.CompareTag("Broom"))
             {
                 Debug.Log("I touched the broom");
+
             }
         }
 
@@ -57,6 +67,14 @@ public class DragAndDrop : MonoBehaviour
         if (Input.GetMouseButtonUp(0)) 
         {
             isDragging = false;
+
+            if (objectsAnimator != null)
+            {
+                objectsAnimator.SetBool("PickedUp", false);
+                objectsAnimator = null;
+            }
+
+            objectsAnimator = null;
         }
     }
 
@@ -66,4 +84,8 @@ public class DragAndDrop : MonoBehaviour
         return Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10));
         //this will give us mouse postiion in a worl point..10 is cuz cam is 1 units wy
     }
+
+
+
 }
+

@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 
 public class Timer : MonoBehaviour
 {
     public float countDownTimer = 120f;
     public TextMeshProUGUI timerText;
 
+
+    public GameObject win;
+
+    public GameObject lose;
 
 
     private bool winGame = false;
@@ -47,6 +53,7 @@ public class Timer : MonoBehaviour
             winGame = true;
 
             Debug.Log("winnter!");
+            win.SetActive(true);
 
         }
 
@@ -55,8 +62,16 @@ public class Timer : MonoBehaviour
             winGame = false;
 
             Debug.Log("u lose");
+            lose.SetActive(true);  
+
         }
 
+
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 }

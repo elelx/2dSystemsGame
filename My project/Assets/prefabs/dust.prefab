@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7552687874132973741}
   - component: {fileID: 174694523599189936}
   - component: {fileID: 3685406366667705001}
+  - component: {fileID: 5357910922622355844}
   m_Layer: 0
   m_Name: dust
   m_TagString: Dust
@@ -144,3 +145,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DustTimer: 3
+  animator: {fileID: 5357910922622355844}
+--- !u!95 &5357910922622355844
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8091563416522676637}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9fbb20ac631b841b5a0ef0229a9b0178, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

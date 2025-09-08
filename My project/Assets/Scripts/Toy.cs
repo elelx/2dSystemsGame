@@ -12,6 +12,8 @@ public class Toy : MonoBehaviour
         
     }
 
+
+  
     // Update is called once per frame
     void Update()
     {
@@ -23,10 +25,13 @@ public class Toy : MonoBehaviour
         if (other.CompareTag("ToyBox"))
         {
             Debug.Log("Toyaway");
+          
 
             gameObject.SetActive(false);
         }
 
     }
+
+
 
 }

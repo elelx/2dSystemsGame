@@ -13,39 +13,44 @@ public class Trash : MonoBehaviour
 
     public GameObject Dust;
 
-    //public float DustTimer = 2f;
-   // public float HowLongTrashisOnFloorTime;
+    public float DustSpawnTime = 2f;
+    public float SpawnTimer = 0f;
 
 
 
-    // Start is called before the first frame update
-    void Start()
+    
+
+    private void Start()
     {
-        
+ 
     }
 
-
-
-    // Update is called once per frame
     void Update()
     {
-        GameObject[] trash = GameObject.FindGameObjectsWithTag("Trash");
+        DustSpawnTime -= Time.deltaTime;
 
-        if (trash.Length > 0)
+        if(dust && DustSpawnTime <= 0f)
         {
-            UnTouchedTrash = true;
+            GameObject[] trash = GameObject.FindGameObjectsWithTag("Trash");
 
-            Instantiate(Dust, transform.position, transform.rotation);
+            if (trash.Length > 0)
+            {
+                UnTouchedTrash = true;
 
+                Instantiate(Dust, transform.position, transform.rotation);
+
+                SpawnTimer = DustSpawnTime;
+            }
         }
-
     }
+ 
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("TrashCan"))
         {
             Debug.Log("TrashAway");
+           
 
             gameObject.SetActive(false);
 
@@ -54,4 +59,6 @@ public class Trash : MonoBehaviour
 
 
     }
+
+
 }

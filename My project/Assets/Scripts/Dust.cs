@@ -12,7 +12,10 @@ public class Dust : MonoBehaviour
 
     private float CleanDusttimer = 0f;
 
+    public Animator animator;
 
+
+    [SerializeField] ParticleSystem dustParticles = null;
 
 
 
@@ -51,6 +54,11 @@ public class Dust : MonoBehaviour
         if(other.CompareTag("Broom") && !ifBroomTouch)
         {
             ifBroomTouch = true;
+
+            animator.SetBool("isSwipe", true);
+
+            DustCollect();
+
         }
     }
 
@@ -59,11 +67,25 @@ public class Dust : MonoBehaviour
         if (other.CompareTag("Broom"))
         {
             ifBroomTouch = false;
+            animator.SetBool("isSwipe", false);
+
+
         }
     }
     void TimerEnds()
     {
         Debug.Log(" dust cleaned!");
+
+        if (dustParticles != null)
+        {
+            dustParticles.Stop();
+        }
+
         gameObject.SetActive(false);
+    }
+
+    public void DustCollect()
+    {
+        dustParticles.Play();
     }
 }
